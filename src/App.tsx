@@ -23,7 +23,7 @@ function App() {
 
   const handleNewTodoKeyDown = async(e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && newTodo.trim() !== '') {
-      const response = await fetch(`http://localhost:3000/todo?title=${newTodo}`,{
+      const response = await fetch(`https://vercel.com/syeda-tahiras-projects/todo-backend=${newTodo}`,{
         method: "post"
       })
       
@@ -38,7 +38,7 @@ function App() {
   };
 
   const toggleTodo = async(id: string,done:boolean) => {
-    const response = await fetch(`http://localhost:3000/todo/${id}?done=${!done}`,{
+    const response = await fetch(`https://vercel.com/syeda-tahiras-projects/todo-backend ${id}?done=${!done}`,{
       method:"put"
     })
     const result = await response.json();
@@ -53,7 +53,7 @@ setTodos(
   };
 
   const deleteTodo = async(id: string) => {
-    const response = await fetch(`http://localhost:3000/todo/${id}`,{
+    const response = await fetch(`https://vercel.com/syeda-tahiras-projects/todo-backend ${id}`,{
       method: "delete"
     })
     const result = await response.json();
@@ -83,7 +83,7 @@ setTodos(
 
   useEffect(()=>{
     const getProducts = async()=>{
-      const response = await fetch(`http://localhost:3000/todo`)
+      const response = await fetch(`https://vercel.com/syeda-tahiras-projects/todo-backend`)
       const result = await response.json();
       if(result.success){
         setTodos(result.data);
